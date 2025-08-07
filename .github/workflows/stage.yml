@@ -1,0 +1,26 @@
+name: Deploy Updater to Stage
+on:
+  push:
+    branches:
+      - stage
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.DEPLOY_PORT }} -H ${{ secrets.DEPLOY_HOST_STAGE }} >> ~/.ssh/known_hosts
+
+      - name: Deploy plugin via rsync
+        run: |
+          rsync -avz -e "ssh -p ${{ secrets.DEPLOY_PORT }}" \
+            ./wp-content/plugins/my-plugin/ \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST_STAGE }}:/share/sites/staging.gayety.com/htdocs/wp-content/plugins/jwplayer-metadata-updater/
