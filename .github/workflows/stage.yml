@@ -30,4 +30,5 @@ jobs:
       - name: Deploy plugin via rsync
         run: |
           rsync -avz -e "ssh -p ${{ secrets.DEPLOY_PORT_STAGE }}" \
+            ./ \
             ${{ secrets.DEPLOY_USER }}@vpn.leviathan.ateamservers.com:/share/sites/staging.gayety.com/htdocs/wp-content/plugins/jwplayer-metadata-updater/
