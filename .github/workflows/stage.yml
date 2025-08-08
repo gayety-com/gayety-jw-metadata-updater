@@ -25,9 +25,10 @@ jobs:
         with:
           host: vpn.leviathan.ateamservers.com
           username: github
-          key: ${{ secrets.STAGE_SSH_PUBLIC_KEY }}
+          key: ${{ secrets.STAGE_SSH_KEY }}
           port: 2220
           script: whoami
+          debug: true
 
 
       - name: Deploy plugin via rsync
