@@ -2,8 +2,8 @@
 /*
 Plugin Name: JWPlayer Metadata Updater
 Description: Updates JWPlayer metadata when a video post is updated.
-Version: 1.0
-Author: Jeff Kaufman
+Version: 1.0.1
+Author: Jeff Kaufman and Joe Diliberto
 */
 
 // Hook to execute when a post is updated
