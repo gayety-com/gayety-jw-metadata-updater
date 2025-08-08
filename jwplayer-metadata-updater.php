@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: JWPlayer Metadata Updater
-Description: Updates JWPlayer metadata when a video post is updated.
+Description: Updates JWPlayer metadata when a video post is updated. Now with deploy.
 Version: 1.0.1
 Author: Jeff Kaufman and Joe Diliberto
 */
