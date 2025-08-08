@@ -29,6 +29,7 @@ jobs:
           port: 2220
           script: whoami
           debug: true
+          use_insecure_cipher: true
 
 
       - name: Deploy plugin via rsync
