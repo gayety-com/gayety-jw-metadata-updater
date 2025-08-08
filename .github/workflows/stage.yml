@@ -23,9 +23,9 @@ jobs:
       - name: Execute remote SSH commands using password
         uses: appleboy/ssh-action@v1
         with:
-          host: 50.28.8.38
+          host: vpn.leviathan.ateamservers.com
           username: github
-          password: ${{ secrets.DEPLOY_PASSWORD }}
+          key: ${{ secrets.STAGE_SSH_KEY }}
           port: 2220
           script: whoami
 
