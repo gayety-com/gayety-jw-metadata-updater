@@ -23,7 +23,7 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.STAGE_SSH_KEY }}" > ~/.ssh/id_rsa
+          printf '%s\n' "${{ secrets.STAGE_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.DEPLOY_PORT_STAGE }} -H vpn.leviathan.ateamservers.com >> ~/.ssh/known_hosts
 
