@@ -27,6 +27,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p ${{ secrets.DEPLOY_PORT_STAGE }} -H vpn.leviathan.ateamservers.com >> ~/.ssh/known_hosts
 
+
       - name: Deploy plugin via rsync
         run: |
           rsync -avz -e "ssh -p ${{ secrets.DEPLOY_PORT_STAGE }}" \
