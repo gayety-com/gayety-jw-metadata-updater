@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
@@ -24,4 +24,4 @@ jobs:
           rsync -avz --no-owner --no-perms --no-times --exclude='.*' -e "ssh -p ${{secrets.DEPLOY_PORT_PROD }}" \
             ./ \
             ${{ secrets.DEPLOY_USER }}@vpn.leviathan.ateamservers.com:/share/sites/gayety.com/htdocs/wp-content/plugins/jwplayer-metadata-updater/
-          ssh -p ${{ secrets.DEPLOY_PORT_PROD }} -t -i ~/.ssh/id_rsa -l ${{ secrets.DEPLOY_USER}} vpn.leviathan.ateamservers.com sudo ateam-repsync
+          ssh -t -p ${{ secrets.DEPLOY_PORT_PROD }} -i ~/.ssh/id_rsa -l ${{ secrets.DEPLOY_USER}} vpn.leviathan.ateamservers.com sudo ateam-repsync
