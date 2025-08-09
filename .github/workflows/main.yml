@@ -1,4 +1,4 @@
-name: Deploy Updater to Stage
+name: Deploy Updater to Main
 on:
   push:
     branches:
@@ -32,3 +32,4 @@ jobs:
           rsync -avz --no-owner --no-perms --no-times --exclude='.*' -e "ssh -p ${{secrets.DEPLOY_PORT_PROD }}" \
             ./ \
             ${{ secrets.DEPLOY_USER }}@vpn.leviathan.ateamservers.com:/share/sites/gayety.com/htdocs/wp-content/plugins/jwplayer-metadata-updater/
+          sudo /usr/local/ateam/sbin/ateam-repsync
